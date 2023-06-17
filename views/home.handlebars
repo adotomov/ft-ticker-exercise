@@ -1,1 +1,12 @@
-Hello {{ name }}!
+<div class="price-bar">
+  {{#each indices}}
+    <div class="indice-container">
+      <p class="symbol">{{this.symbol}}</p>
+      {{#compare this.priceDiff}}
+      <p class="price green">{{this.priceDiff}}%</p>
+    {{else}}
+      <p class="price red">{{this.priceDiff}}%</p>
+    {{/compare}}
+    </div>
+  {{/each}}
+</div>
