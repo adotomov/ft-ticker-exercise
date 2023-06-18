@@ -17,7 +17,6 @@ app.set('view engine', 'handlebars');
 app.use(express.static('static'));
 
 app.get('/', async function (req: Request, res: Response) {
-
     const priceData = await extractDailyChange();
     
     const templateData = {

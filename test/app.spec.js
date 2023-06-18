@@ -1,5 +1,5 @@
 const request = require('supertest');
-const subject = require('../app');
+const subject = require('../src/app');
 
 describe('Testing the server', () => {
 

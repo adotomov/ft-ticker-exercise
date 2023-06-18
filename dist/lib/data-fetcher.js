@@ -20,12 +20,17 @@ const loadIndiceData = (indices) => __awaiter(void 0, void 0, void 0, function* 
     return result.data.data;
 });
 const extractDailyChange = () => __awaiter(void 0, void 0, void 0, function* () {
-    const symbols = `FTSE:FSI,INX:IOM,EURUSD,GBPUSD,IB.1:IEU`;
-    const { items } = yield loadIndiceData(symbols);
-    return items.map((item) => {
-        const symbol = item.basic.name;
-        const priceDiff = item.quote.change1DayPercent.toFixed(2);
-        return { symbol, priceDiff };
-    });
+    try {
+        const symbols = `FTSE:FSI,INX:IOM,EURUSD,GBPUSD,IB.1:IEU`;
+        const { items } = yield loadIndiceData(symbols);
+        return items.map((item) => {
+            const symbol = item.basic.name;
+            const priceDiff = item.quote.change1DayPercent.toFixed(2);
+            return { symbol, priceDiff };
+        });
+    }
+    catch (error) {
+        throw error;
+    }
 });
 exports.extractDailyChange = extractDailyChange;
